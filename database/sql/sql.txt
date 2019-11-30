@@ -1,0 +1,805 @@
+
+DROP DATABASE `coba`;
+CREATE SCHEMA `coba` ;
+use coba;
+
+-- Drop table
+
+-- DROP TABLE admin_restaurant;
+
+CREATE TABLE admin_restaurant (
+	username varchar(15) NOT NULL,
+	password varchar(35) NULL,
+	CONSTRAINT admin_restaurant_pkey PRIMARY KEY (username)
+);
+
+-- Drop table
+
+-- DROP TABLE angkot_color;
+
+CREATE TABLE angkot_color (
+	id int NOT NULL,
+	color char(20) NULL,
+	CONSTRAINT angkot_color_pkey PRIMARY KEY (id)
+);
+
+-- Drop table
+
+-- DROP TABLE category_worship_place;
+
+CREATE TABLE category_worship_place (
+	id int NOT NULL,
+	name varchar(10) NULL,
+	CONSTRAINT id_category PRIMARY KEY (id)
+);
+
+-- Drop table
+
+-- DROP TABLE culinary;
+
+CREATE TABLE culinary (
+	id int NOT NULL,
+	name char(20) NULL,
+	CONSTRAINT id_kuliner PRIMARY KEY (id)
+);
+
+-- Drop table
+
+-- DROP TABLE culinary_gallery;
+
+CREATE TABLE culinary_gallery (
+	serial_number int NOT NULL,
+	id char(5) NOT NULL,
+	gallery_culinary varchar(10) NULL,
+	CONSTRAINT id_culinary_gallery PRIMARY KEY (serial_number, id)
+);
+
+-- Drop table
+
+-- DROP TABLE culinary_place;
+
+CREATE TABLE culinary_place (
+	gid serial NOT NULL,
+	name char(30) NULL,
+	address char(50) NULL,
+	cp char(12) NULL,
+	capacity int NULL,
+	geom geometry NULL,
+	open time NULL,
+	close time NULL,
+	employee int NULL,
+	id char(5) NOT NULL,
+	CONSTRAINT id_culinary_place PRIMARY KEY (id)
+);
+-- Create INDEX kuliner_region_geom_idx ON culinary_place;
+
+-- Drop table
+
+-- DROP TABLE district;
+
+CREATE TABLE district (
+	geom geometry NULL,
+	id varchar(4) NOT NULL,
+	name varchar(25) NULL,
+	CONSTRAINT id_district PRIMARY KEY (id)
+);
+-- Create INDEX kecamatan_region_geom_gist ON district;
+
+-- Drop table
+
+-- DROP TABLE facility;
+
+CREATE TABLE facility (
+	id int NOT NULL,
+	name varchar(20) NULL,
+	CONSTRAINT id_facility_worship_place PRIMARY KEY (id)
+);
+
+-- Drop table
+
+-- DROP TABLE facility_condition;
+
+CREATE TABLE facility_condition (
+	id int NOT NULL,
+	`condition` varchar(8) NULL,
+	CONSTRAINT id_facility_condition PRIMARY KEY (id)
+);
+
+-- Drop table
+
+-- DROP TABLE facility_culinary;
+
+CREATE TABLE facility_culinary (
+	facility char(20) NULL,
+	id char(1) NOT NULL,
+	CONSTRAINT id_facility PRIMARY KEY (id)
+);
+
+-- Drop table
+
+-- DROP TABLE facility_hotel;
+
+CREATE TABLE facility_hotel (
+	id int NOT NULL,
+	name char(20) NULL,
+	CONSTRAINT facility_hotel_pkey PRIMARY KEY (id)
+);
+
+-- Drop table
+
+-- DROP TABLE facility_restaurant;
+
+CREATE TABLE facility_restaurant (
+	id int NOT NULL,
+	name varchar(20) NULL,
+	CONSTRAINT facility_restaurant_pkey PRIMARY KEY (id)
+);
+
+-- Drop table
+
+-- DROP TABLE facility_tourism;
+
+CREATE TABLE facility_tourism (
+	name char(30) NOT NULL,
+	id char(1) NOT NULL,
+	CONSTRAINT PK_Facility_Tourism PRIMARY KEY (id)
+);
+
+-- Drop table
+
+-- DROP TABLE hotel_gallery;
+
+CREATE TABLE hotel_gallery (
+	serial_number int NOT NULL,
+	id char(5) NULL,
+	gallery_hotel char(10) NULL,
+	CONSTRAINT hotel_gallery_pkey PRIMARY KEY (serial_number)
+);
+
+-- Drop table
+
+-- DROP TABLE hotel_type;
+
+CREATE TABLE hotel_type (
+	name char(10) NOT NULL,
+	id char(1) NOT NULL,
+	CONSTRAINT PK_TIPE_HOTEL PRIMARY KEY (id)
+);
+
+-- Drop table
+
+-- DROP TABLE industry_type;
+
+CREATE TABLE industry_type (
+	name char(20) NULL,
+	id char(1) NOT NULL,
+	CONSTRAINT id_jenis_industry PRIMARY KEY (id)
+);
+
+-- Drop table
+
+-- DROP TABLE login;
+
+CREATE TABLE login (
+	username char(20) NOT NULL,
+	password char(35) NULL,
+	CONSTRAINT username PRIMARY KEY (username)
+);
+
+
+
+-- Drop table
+
+-- DROP TABLE product_small_industry;
+
+CREATE TABLE product_small_industry (
+	id int NOT NULL,
+	product char(10) NULL,
+	CONSTRAINT id_product_small_industry PRIMARY KEY (id)
+);
+
+-- Drop table
+
+-- DROP TABLE product_souvenir;
+
+CREATE TABLE product_souvenir (
+	id int NOT NULL,
+	product char(10) NULL,
+	CONSTRAINT id_souvenir_product PRIMARY KEY (id)
+);
+
+-- Drop table
+
+-- DROP TABLE restaurant;
+
+CREATE TABLE restaurant (
+	geom geometry NULL,
+	id varchar(5) NOT NULL,
+	name varchar(25) NULL,
+	address varchar(50) NULL,
+	cp varchar(12) NULL,
+	open time NULL,
+	close time NULL,
+	capacity int NULL,
+	employee int NULL,
+	mushalla int NULL,
+	park_area int NULL,
+	bathroom int NULL,
+	id_category int NULL,
+	CONSTRAINT pk_restaurant PRIMARY KEY (id)
+);
+-- Create INDEX agen1_region_region_geom_gist ON restaurant;
+
+-- Drop table
+
+-- DROP TABLE restaurant_category;
+
+CREATE TABLE restaurant_category (
+	id int NOT NULL,
+	name varchar(20) NULL,
+	CONSTRAINT id_restaurant_category PRIMARY KEY (id)
+);
+
+-- Drop table
+
+-- DROP TABLE room;
+
+CREATE TABLE room (
+	id int NOT NULL,
+	name char(20) NULL,
+	price int NULL,
+	CONSTRAINT pk PRIMARY KEY (id)
+);
+
+-- Drop table
+
+-- DROP TABLE souvenir_type;
+
+CREATE TABLE souvenir_type (
+	name char(25) NULL,
+	id char(1) NOT NULL,
+	CONSTRAINT id_jenis_oleh PRIMARY KEY (id)
+);
+
+-- Drop table
+
+-- DROP TABLE spatial_ref_sys;
+
+CREATE TABLE spatial_ref_sys (
+	srid int NOT NULL,
+	auth_name varchar(256) NULL,
+	auth_srid int NULL,
+	srtext varchar(2048) NULL,
+	proj4text varchar(2048) NULL,
+	CONSTRAINT spatial_ref_sys_pkey PRIMARY KEY (srid),
+	CONSTRAINT spatial_ref_sys_srid_check CHECK (((srid > 0) AND (srid <= 998999)))
+);
+
+-- Drop table
+
+-- DROP TABLE special_menu;
+
+CREATE TABLE special_menu (
+	id int NOT NULL,
+	name varchar(20) NULL,
+	CONSTRAINT id_special_menu PRIMARY KEY (id)
+);
+
+-- Drop table
+
+-- DROP TABLE statistika2;
+
+CREATE TABLE statistika2 (
+	ip varchar(20) NOT NULL,
+	tanggal date NOT NULL,
+	hits int NOT NULL,
+	`online` varchar(255) NOT NULL
+);
+
+-- Drop table
+
+-- DROP TABLE status;
+
+CREATE TABLE status (
+	id int NOT NULL,
+	status char(25) NULL,
+	CONSTRAINT id_status PRIMARY KEY (id)
+);
+
+-- Drop table
+
+-- DROP TABLE tourism_type;
+
+CREATE TABLE tourism_type (
+	name char(10) NOT NULL,
+	id char(1) NOT NULL,
+	CONSTRAINT PK_Tourism_Tipe PRIMARY KEY (id)
+);
+
+-- Drop table
+
+-- DROP TABLE type_event;
+
+CREATE TABLE type_event (
+	id int NOT NULL,
+	name varchar(20) NULL,
+	CONSTRAINT id_type_event PRIMARY KEY (id)
+);
+
+-- Drop table
+
+-- DROP TABLE ustad;
+
+CREATE TABLE ustad (
+	id int NOT NULL,
+	name varchar(30) NULL,
+	address varchar(50) NULL,
+	cp varchar(12) NULL,
+	CONSTRAINT id_ustad PRIMARY KEY (id)
+);
+
+-- Drop table
+
+-- DROP TABLE angkot;
+
+CREATE TABLE angkot (
+	id varchar(5) NOT NULL,
+	destination varchar(20) NOT NULL,
+	track varchar(50) NOT NULL,
+	geom geometry NULL,
+	id_color int NULL,
+	cost int NULL,
+	number char(5) NULL,
+	route_color varchar(10) NULL,
+	CONSTRAINT angkot_pk PRIMARY KEY (id),
+	CONSTRAINT angkot_color FOREIGN KEY (id_color) REFERENCES angkot_color(id)
+);
+
+-- Drop table
+
+-- DROP TABLE angkot_gallery;
+
+CREATE TABLE angkot_gallery (
+	serial_number int NOT NULL,
+	id varchar(5) NOT NULL,
+	gallery_angkot varchar(10) NOT NULL,
+	CONSTRAINT PK_Gallery_Angkot PRIMARY KEY (serial_number, id),
+	CONSTRAINT FK_id_Gallery FOREIGN KEY (id) REFERENCES angkot(id)
+);
+
+-- Drop table
+
+-- DROP TABLE detail_culinary;
+
+CREATE TABLE detail_culinary (
+	id_culinary_place char(5) NOT NULL,
+	id_culinary int NOT NULL,
+	price int NULL,
+	CONSTRAINT id_detail_culinary PRIMARY KEY (id_culinary_place, id_culinary),
+	CONSTRAINT id_culinary FOREIGN KEY (id_culinary) REFERENCES culinary(id)
+);
+
+-- Drop table
+
+-- DROP TABLE detail_culinary_place;
+
+CREATE TABLE detail_culinary_place (
+	id_culinary_place char(5) NOT NULL,
+	id_angkot char(5) NOT NULL,
+	lat char(15) NULL,
+	lng char(15) NULL,
+	description char(30) NULL,
+	CONSTRAINT id_detail_culinary_place PRIMARY KEY (id_culinary_place, id_angkot),
+	CONSTRAINT id_angkot FOREIGN KEY (id_angkot) REFERENCES angkot(id)
+);
+
+-- Drop table
+
+-- DROP TABLE detail_facility_culinary;
+
+CREATE TABLE detail_facility_culinary (
+	id_culinary_place char(5) NOT NULL,
+	id_facility char(1) NOT NULL,
+	CONSTRAINT id_detail_facility PRIMARY KEY (id_culinary_place, id_facility),
+	CONSTRAINT id_facility FOREIGN KEY (id_facility) REFERENCES facility_culinary(id)
+);
+
+-- Drop table
+
+-- DROP TABLE detail_facility_restaurant;
+
+CREATE TABLE detail_facility_restaurant (
+	id_facility int NOT NULL,
+	id_restaurant char(5) NOT NULL,
+	CONSTRAINT detail_facility_restaurant_pkey PRIMARY KEY (id_facility, id_restaurant),
+	CONSTRAINT detail_facility_restaurant_id_facility_fkey FOREIGN KEY (id_facility) REFERENCES facility_restaurant(id),
+	CONSTRAINT id_restaurant_ FOREIGN KEY (id_restaurant) REFERENCES restaurant(id)
+);
+
+-- Drop table
+
+-- DROP TABLE detail_menu;
+
+CREATE TABLE detail_menu (
+	id_restaurant char(5) NOT NULL,
+	id_special_menu int NOT NULL,
+	price int NULL,
+	CONSTRAINT detail_menu_pk PRIMARY KEY (id_restaurant, id_special_menu),
+	CONSTRAINT restaurant_fk FOREIGN KEY (id_restaurant) REFERENCES restaurant(id),
+	CONSTRAINT special_menu_fk FOREIGN KEY (id_special_menu) REFERENCES special_menu(id)
+);
+
+-- Drop table
+
+-- DROP TABLE detail_restaurant;
+
+CREATE TABLE detail_restaurant (
+	id_angkot varchar(5) NOT NULL,
+	id_restaurant varchar(5) NOT NULL,
+	lat varchar(15) NULL,
+	lng varchar(15) NULL,
+	description varchar(30) NULL,
+	CONSTRAINT id_detail_restaurant PRIMARY KEY (id_angkot, id_restaurant),
+	CONSTRAINT fk_restaurantye FOREIGN KEY (id_restaurant) REFERENCES restaurant(id),
+	CONSTRAINT fk_angkot FOREIGN KEY (id_angkot) REFERENCES angkot(id)
+);
+
+-- Drop table
+
+-- DROP TABLE event;
+
+CREATE TABLE event (
+	id int NOT NULL,
+	name varchar(30) NULL,
+	description text NULL,
+	id_type_event int NULL,
+	CONSTRAINT id_event PRIMARY KEY (id),
+	CONSTRAINT id_type_event FOREIGN KEY (id_type_event) REFERENCES type_event(id)
+);
+
+-- Drop table
+
+-- DROP TABLE hotel;
+
+CREATE TABLE hotel (
+	id char(5) NOT NULL,
+	name char(25) NULL,
+	address char(50) NULL,
+	cp char(12) NULL,
+	geom geometry NULL,
+	ktp int NULL,
+	marriage_book int NULL,
+	mushalla int NULL,
+	star char(2) NULL,
+	id_type char(1) NULL,
+	CONSTRAINT pk_hotel PRIMARY KEY (id),
+	CONSTRAINT FK_type_hotel FOREIGN KEY (id_type) REFERENCES hotel_type(id)
+);
+-- Create INDEX hotel_region_geom_idx ON hotel;
+
+-- Drop table
+
+-- DROP TABLE restaurant_gallery;
+
+CREATE TABLE restaurant_gallery (
+	serial_number int NOT NULL,
+	id varchar(5) NOT NULL,
+	gallery_restaurant varchar(15) NULL,
+	CONSTRAINT pk_restaurant_gallery PRIMARY KEY (serial_number, id),
+	CONSTRAINT fk_restaurant FOREIGN KEY (id) REFERENCES restaurant(id)
+);
+
+-- Drop table
+
+-- DROP TABLE small_industry;
+
+CREATE TABLE small_industry (
+	name char(30) NULL,
+	owner char(20) NULL,
+	cp char(12) NULL,
+	address char(50) NULL,
+	employee int NULL,
+	geom geometry NULL,
+	id char(5) NOT NULL,
+	id_industry_type char(1) NULL,
+	CONSTRAINT pk_small_industry PRIMARY KEY (id),
+	CONSTRAINT fk_industry_type FOREIGN KEY (id_industry_type) REFERENCES industry_type(id)
+);
+-- Create INDEX industri_kecil_region_geom_idx ON small_industry;
+
+-- Drop table
+
+-- DROP TABLE souvenir;
+
+CREATE TABLE souvenir (
+	gid int NOT NULL,
+	name char(30) NULL,
+	owner char(20) NULL,
+	cp char(12) NULL,
+	address char(50) NULL,
+	employee int NULL,
+	geom geometry NULL,
+	id char(5) NOT NULL,
+	id_souvenir_type char(1) NULL,
+	CONSTRAINT pk_souvenir PRIMARY KEY (id),
+	CONSTRAINT fk_souvenir_type FOREIGN KEY (id_souvenir_type) REFERENCES souvenir_type(id)
+);
+
+-- Drop table
+
+-- DROP TABLE souvenir_gallery;
+
+CREATE TABLE souvenir_gallery (
+	serial_number int NOT NULL,
+	id char(5) NOT NULL,
+	gallery_souvenir char(10) NULL,
+	CONSTRAINT pk_souvenir_gallery PRIMARY KEY (serial_number, id),
+	CONSTRAINT fK_souvenir FOREIGN KEY (id) REFERENCES souvenir(id)
+);
+
+-- Drop table
+
+-- DROP TABLE tourism;
+
+CREATE TABLE tourism (
+	id char(5) NOT NULL,
+	name char(40) NULL,
+	address char(50) NULL,
+	open time NULL,
+	close time NULL,
+	geom geometry NULL,
+	ticket int NULL,
+	id_type char(1) NULL,
+	CONSTRAINT pk_tourism PRIMARY KEY (id),
+	CONSTRAINT FK_Tipe_Tourism FOREIGN KEY (id_type) REFERENCES tourism_type(id)
+);
+
+-- Drop table
+
+-- DROP TABLE tourism_gallery;
+
+CREATE TABLE tourism_gallery (
+	serial_number int NOT NULL,
+	id char(5) NULL,
+	gallery_tourism char(10) NULL,
+	CONSTRAINT PK_tourism_gallery PRIMARY KEY (serial_number),
+	CONSTRAINT FK_id_tourism FOREIGN KEY (id) REFERENCES tourism(id)
+);
+
+-- Drop table
+
+-- DROP TABLE worship_place;
+
+CREATE TABLE worship_place (
+	geom geometry NULL,
+	id varchar(5) NOT NULL,
+	name varchar(35) NULL,
+	address varchar(80) NULL,
+	land_size int NULL,
+	park_area_size int NULL,
+	building_size int NULL,
+	capacity int NULL,
+	est int NULL,
+	last_renovation int NULL,
+	jamaah int NULL,
+	imam int NULL,
+	teenager int NULL,
+	id_category int NULL,
+	image varchar(50) NULL,
+	CONSTRAINT pk_worship_place PRIMARY KEY (id),
+	CONSTRAINT fk_category FOREIGN KEY (id_category) REFERENCES category_worship_place(id)
+);
+-- Create INDEX mesjid_region_geom_idx ON worship_place;
+
+-- Drop table
+
+-- DROP TABLE worship_place_gallery;
+
+CREATE TABLE worship_place_gallery (
+	serial_number int NOT NULL,
+	id varchar(5) NOT NULL,
+	gallery_worship_place varchar(50) NULL,
+	CONSTRAINT id_worship_place_gallery PRIMARY KEY (serial_number, id),
+	CONSTRAINT id FOREIGN KEY (id) REFERENCES worship_place(id)
+);
+
+-- Drop table
+
+-- DROP TABLE administrators;
+
+CREATE TABLE administrators (
+	stewardship_period varchar(9) NOT NULL,
+	id_worship_place char(5) NOT NULL,
+	name varchar(30) NULL,
+	address varchar(50) NULL,
+	hp varchar(12) NULL,
+	role varchar(1) NULL,
+	username varchar(15) NULL,
+	password varchar(32) NULL,
+	last_login timestamp NULL,
+	CONSTRAINT pk_administrators PRIMARY KEY (stewardship_period, id_worship_place),
+	CONSTRAINT fk_worship_place FOREIGN KEY (id_worship_place) REFERENCES worship_place(id)
+);
+
+-- Drop table
+
+-- DROP TABLE detail_event;
+
+CREATE TABLE detail_event (
+	date date NOT NULL,
+	time time NOT NULL,
+	id_ustad int NOT NULL,
+	id_event int NULL,
+	id_worship_place varchar(5) NOT NULL,
+	description text NULL,
+	CONSTRAINT pk_detail_event PRIMARY KEY (date, time, id_worship_place),
+	CONSTRAINT fk_event FOREIGN KEY (id_event) REFERENCES event(id),
+	CONSTRAINT fk_ustad FOREIGN KEY (id_ustad) REFERENCES ustad(id),
+	CONSTRAINT fk_worship_place_in_event FOREIGN KEY (id_worship_place) REFERENCES worship_place(id)
+);
+
+-- Drop table
+
+-- DROP TABLE detail_facility;
+
+CREATE TABLE detail_facility (
+	id_facility int NOT NULL,
+	id_worship_place varchar(5) NOT NULL,
+	id_facility_condition int NULL,
+	CONSTRAINT detail_facility_pkey PRIMARY KEY (id_facility, id_worship_place),
+	CONSTRAINT fk_facility FOREIGN KEY (id_facility) REFERENCES facility(id),
+	CONSTRAINT fk_facility_condition FOREIGN KEY (id_facility_condition) REFERENCES facility_condition(id),
+	CONSTRAINT fk_worship_place_id_facility FOREIGN KEY (id_worship_place) REFERENCES worship_place(id)
+);
+
+-- Drop table
+
+-- DROP TABLE detail_facility_hotel;
+
+CREATE TABLE detail_facility_hotel (
+	id_hotel char(5) NOT NULL,
+	id_facility int NOT NULL,
+	CONSTRAINT detail_facility_hotel_pkey PRIMARY KEY (id_hotel, id_facility),
+	CONSTRAINT fk_facility_in_hotel FOREIGN KEY (id_facility) REFERENCES facility_hotel(id),
+	CONSTRAINT fk_hotel FOREIGN KEY (id_hotel) REFERENCES hotel(id)
+);
+
+-- Drop table
+
+-- DROP TABLE detail_facility_tourism;
+
+CREATE TABLE detail_facility_tourism (
+	id_tourism char(5) NOT NULL,
+	id_facility char(1) NOT NULL,
+	CONSTRAINT PK_Detail_Facility_Tourism PRIMARY KEY (id_tourism, id_facility),
+	CONSTRAINT FK_facility_in_tourism FOREIGN KEY (id_facility) REFERENCES facility_tourism(id),
+	CONSTRAINT FK_tourism_in_facility FOREIGN KEY (id_tourism) REFERENCES tourism(id)
+);
+
+-- Drop table
+
+-- DROP TABLE detail_hotel;
+
+CREATE TABLE detail_hotel (
+	id_angkot char(5) NOT NULL,
+	id_hotel char(5) NOT NULL,
+	lat char(15) NULL,
+	lng char(15) NULL,
+	description char(30) NULL,
+	CONSTRAINT PK_detail_hotel PRIMARY KEY (id_angkot, id_hotel),
+	CONSTRAINT FK_angkot_in_hotel FOREIGN KEY (id_angkot) REFERENCES angkot(id),
+	CONSTRAINT FK_hotel_in_detail FOREIGN KEY (id_hotel) REFERENCES hotel(id)
+);
+
+-- Drop table
+
+-- DROP TABLE detail_product_small_industry;
+
+CREATE TABLE detail_product_small_industry (
+	id_product int NOT NULL,
+	id_small_industry char(5) NOT NULL,
+	price int NULL,
+	CONSTRAINT pk_detail_product_industry PRIMARY KEY (id_product, id_small_industry),
+	CONSTRAINT fk_product_in_small_industry FOREIGN KEY (id_product) REFERENCES product_small_industry(id),
+	CONSTRAINT fk_small_industry_in_detail FOREIGN KEY (id_small_industry) REFERENCES small_industry(id)
+);
+
+
+-- Drop table
+
+-- DROP TABLE detail_product_souvenir;
+
+CREATE TABLE detail_product_souvenir (
+	id_product int NOT NULL,
+	id_souvenir char(5) NOT NULL,
+	price int NULL,
+	CONSTRAINT pk_detail_product_souvenir PRIMARY KEY (id_product, id_souvenir),
+	CONSTRAINT fk_product_souvenir FOREIGN KEY (id_product) REFERENCES product_souvenir(id),
+	CONSTRAINT fk_souvenir_product FOREIGN KEY (id_souvenir) REFERENCES souvenir(id)
+);
+
+-- Drop table
+
+-- DROP TABLE detail_room;
+
+CREATE TABLE detail_room (
+	id_room int NOT NULL,
+	id_hotel char(5) NOT NULL,
+	CONSTRAINT pk_detail_room PRIMARY KEY (id_room, id_hotel),
+	CONSTRAINT fk_hotel_in_detail_roon FOREIGN KEY (id_hotel) REFERENCES hotel(id),
+	CONSTRAINT fk_room_in_detail FOREIGN KEY (id_room) REFERENCES room(id)
+);
+
+-- Drop table
+
+-- DROP TABLE detail_small_industry;
+
+CREATE TABLE detail_small_industry (
+	id_small_industry char(5) NOT NULL,
+	id_angkot char(5) NOT NULL,
+	lat char(15) NULL,
+	lng char(15) NULL,
+	description char(30) NULL,
+	CONSTRAINT pk_detail_small_industry PRIMARY KEY (id_angkot, id_small_industry),
+	CONSTRAINT fk_angkot_small_industry FOREIGN KEY (id_angkot) REFERENCES angkot(id),
+	CONSTRAINT fk_small_industry_detail FOREIGN KEY (id_small_industry) REFERENCES small_industry(id)
+);
+
+
+
+-- Drop table
+
+-- DROP TABLE detail_souvenir;
+
+CREATE TABLE detail_souvenir (
+	id_souvenir char(5) NOT NULL,
+	id_angkot char(5) NOT NULL,
+	lat char(15) NULL,
+	lng char(15) NULL,
+	description char(30) NULL,
+	CONSTRAINT pk_detail_souvenir PRIMARY KEY (id_souvenir, id_angkot),
+	CONSTRAINT fk_angkot_in_souvenir FOREIGN KEY (id_angkot) REFERENCES angkot(id),
+	CONSTRAINT fk_souvenir_in_detal FOREIGN KEY (id_souvenir) REFERENCES souvenir(id)
+);
+
+-- Drop table
+
+-- DROP TABLE detail_tourism;
+
+CREATE TABLE detail_tourism (
+	id_angkot char(5) NOT NULL,
+	id_tourism char(5) NOT NULL,
+	lat char(15) NULL,
+	lng char(15) NULL,
+	description char(30) NULL,
+	CONSTRAINT PK_detail_tourism PRIMARY KEY (id_angkot, id_tourism),
+	CONSTRAINT FK_angkot_in_tourism FOREIGN KEY (id_angkot) REFERENCES angkot(id),
+	CONSTRAINT FK_tourism_in_Detail FOREIGN KEY (id_tourism) REFERENCES tourism(id)
+);
+
+-- Drop table
+
+-- DROP TABLE detail_worship_place;
+
+CREATE TABLE detail_worship_place (
+	id_angkot char(5) NOT NULL,
+	id_worship_place varchar(5) NOT NULL,
+	lat varchar(15) NULL,
+	lng varchar(15) NULL,
+	description varchar(30) NULL,
+	CONSTRAINT pk_detail_worship_place PRIMARY KEY (id_angkot, id_worship_place),
+	CONSTRAINT fk_angkot1 FOREIGN KEY (id_angkot) REFERENCES angkot(id),
+	CONSTRAINT fk_worship_place1 FOREIGN KEY (id_worship_place) REFERENCES worship_place(id)
+);
+
+-- Drop table
+
+-- DROP TABLE industry_gallery;
+
+CREATE TABLE industry_gallery (
+	serial_number int NOT NULL,
+	id char(5) NOT NULL,
+	gallery_industry char(10) NULL,
+	CONSTRAINT pk_industry_gallery PRIMARY KEY (serial_number, id),
+	CONSTRAINT fk_small_industry1 FOREIGN KEY (id) REFERENCES small_industry(id)
+);

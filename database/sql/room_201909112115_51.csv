@@ -1,0 +1,91 @@
+"id","name","price"
+1,Ekonomi             ,250000
+2,Standar             ,300000
+3,Family              ,450000
+4,Standar             ,175000
+5,Deluxe              ,250000
+6,Ekonomi             ,300000
+7,Standar             ,350000
+8,Deluxe              ,400000
+9,Superior            ,500000
+10,Family              ,600000
+11,Standar             ,120000
+12,Ekonomi             ,120000
+13,Bungallow           ,250000
+14,Superior            ,600000
+15,Family              ,1100000
+16,Standar             ,200000
+17,Super Deluxe        ,400000
+88,Executive           ,220000
+89,Puti Bungsu         ,850000
+36,Ananda              ,650000
+50,Superior Deluxe     ,500000
+90,Executive           ,350000
+18,President Suite     ,3000000
+22,Standar             ,665000
+21,Deluxe              ,1000000
+19,Junior Suite        ,2200000
+20,Kid Sweet           ,1800000
+23,Ekonomi             ,175000
+24,Standar             ,250000
+25,Ekonomi             ,150000
+26,Standar             ,450000
+27,Standar             ,225000
+28,Superior            ,400000
+29,Deluxe              ,750000
+30,Standar             ,100000
+31,Ekonomis            ,500000
+32,Deluxe              ,2500000
+33,Standar             ,280000
+34,VIP                 ,565000
+35,Standar             ,375000
+37,Deluxe              ,650000
+38,Suite               ,410000
+39,Deluxe              ,520000
+40,Superior            ,680000
+43,Junior Suite        ,700000
+41,Grand Deluxe        ,750000
+42,Executive Deluxe    ,750000
+44,Grand Deluxe Executi,910000
+45,Ekonomi             ,200000
+46,Standar Double Room ,350000
+47,Ekonomi             ,85000
+48,Standar             ,150000
+49,Ekonomi             ,75000
+51,Family              ,300000
+52,Triple              ,200000
+53,Standar             ,35000
+54,Junior Suite        ,990000
+55,Deluxe              ,150000
+56,Superior            ,900000
+58,First Class         ,300000
+59,Standar             ,400000
+60,Standar Twin        ,450000
+61,Deluxe Double       ,500000
+62,Ekonomi             ,50000
+63,Standar             ,75000
+64,Single              ,70000
+65,Double              ,90000
+66,Triple              ,150000
+67,Forbed              ,200000
+70,Junior              ,300000
+71,Superior            ,310000
+72,Kharisma            ,400000
+73,Kharisma Suite      ,490000
+68,Suite               ,250000
+69,Suite               ,300000
+74,Deluxe              ,450000
+75,Deluxe              ,300000
+76,VIP                 ,350000
+77,Deluxe              ,950000
+78,Grand Deluxe        ,970000
+79,Rocky Penthouse     ,990000
+80,Royal Grand Docky   ,1050000
+81,Superior            ,300000
+82,Deluxe              ,200000
+83,Superior            ,250000
+84,Menegah             ,320000
+85,Standar             ,180000
+86,Malindo             ,950000
+57,Ekonomi             ,100000
+87,VIP                 ,400000
